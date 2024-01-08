@@ -9,10 +9,10 @@ def first_fit(pages, processes):
                 pages[j] -= processes[i]
                 break
 
-    print_allocation("First Fit", allocation, processes)
+    print_allocation(allocation, processes)
 
-def print_allocation(technique, allocation, processes):
-    print(f"\n{technique} Memory Allocation:")
+def print_allocation(allocation, processes):
+    print("\n First fit Memory Allocation:")
     for i in range(len(processes)):
         if allocation[i] != -1:
             print(f"Process {i+1} -> Page {allocation[i]+1}")
