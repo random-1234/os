@@ -1,4 +1,3 @@
-```
 
 def sjf_scheduling(processes):
     processes.sort(key=lambda x: (x[1]))  # Sort processes based on burst time
@@ -39,4 +38,4 @@ processes = [
     ]
 
 sjf_scheduling(processes)
-```
+
