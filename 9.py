@@ -1,5 +1,5 @@
 
-def best_fit(memory_blocks, page_size, process_sizes):
+def best_fit(memory_blocks, process_sizes):
     allocated_blocks = [-1] * len(process_sizes)
 
     for i in range(len(process_sizes)):
@@ -17,7 +17,6 @@ def best_fit(memory_blocks, page_size, process_sizes):
 
 # Example usage:
 memory_blocks_bf = [100, 500, 200, 300, 600]
-page_size_bf = 200
 process_sizes_bf = [212, 417, 112, 426]
 
 allocated_blocks_bf = best_fit(memory_blocks_bf, page_size_bf, process_sizes_bf)
