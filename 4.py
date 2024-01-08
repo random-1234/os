@@ -1,15 +1,16 @@
-
 def priority_scheduling(processes):
-    processes.sort(key=lambda x: (x[0], -x[2]))  # Sort processes based on arrival time and priority
+    # Sort processes based on priority; if priorities are the same, sort by burst time
+    processes.sort(key=lambda x: (x[0], x[1]))
+
     completion_time = 0
     turnaround_time_sum = 0
     waiting_time_sum = 0
 
     for process in processes:
-        arrival_time, burst_time, priority = process
+        burst_time, priority = process
 
-        # Calculate waiting time
-        waiting_time = max(0, completion_time - arrival_time)
+        # Waiting time is the completion time of the last process
+        waiting_time = max(0, completion_time)
 
         # Calculate completion time
         completion_time += burst_time
@@ -22,7 +23,7 @@ def priority_scheduling(processes):
         waiting_time_sum += waiting_time
 
         # Print information for each process
-        print(f"Process | Arrival Time: {arrival_time} | Burst Time: {burst_time} | Priority: {priority} | Waiting Time: {waiting_time} | Turnaround Time: {turnaround_time}")
+        print(f"Process | Burst Time: {burst_time} | Priority: {priority} | Waiting Time: {waiting_time} | Turnaround Time: {turnaround_time}")
 
     # Calculate and print average waiting time and turnaround time
     avg_waiting_time = waiting_time_sum / len(processes)
@@ -30,13 +31,13 @@ def priority_scheduling(processes):
     print(f"\nAverage Waiting Time: {avg_waiting_time:.2f}")
     print(f"Average Turnaround Time: {avg_turnaround_time:.2f}")
 
-# Example usage:
+# Example usage
 if __name__ == "__main__":
     processes = [
-        (0, 6, 2),
-        (2, 8, 1),
-        (4, 7, 3),
-        (6, 3, 4)
+        (6, 2),  # (Burst Time, Priority)
+        (8, 1),
+        (7, 3),
+        (3, 4)
     ]
 
     priority_scheduling(processes)
