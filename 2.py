@@ -29,13 +29,8 @@ def fcfs_scheduling(processes):
     print(f"\nAverage Waiting Time: {avg_waiting_time:.2f}")
     print(f"Average Turnaround Time: {avg_turnaround_time:.2f}")
 
-# Example usage:
-if __name__ == "__main__":
-    processes = [
-        (0, 10),
-        (6, 20),
-        (7, 5),
-        (15, 8)
-    ]
-
-    fcfs_scheduling(processes)
+processes = [(0, 10),
+             (6, 20),
+             (7, 5),
+             (15, 8)]
+fcfs_scheduling(processes)
