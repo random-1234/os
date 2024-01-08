@@ -1,6 +1,7 @@
+
 def priority_scheduling(processes):
-    # Sort processes based on priority; if priorities are the same, sort by burst time
-    processes.sort(key=lambda x: (x[0], x[1]))
+    # Sort processes based on priority
+    processes.sort(key=lambda x: x[1])
 
     completion_time = 0
     turnaround_time_sum = 0
@@ -32,12 +33,11 @@ def priority_scheduling(processes):
     print(f"Average Turnaround Time: {avg_turnaround_time:.2f}")
 
 # Example usage
-if __name__ == "__main__":
-    processes = [
+processes = [
         (6, 2),  # (Burst Time, Priority)
         (8, 1),
         (7, 3),
         (3, 4)
     ]
 
-    priority_scheduling(processes)
+priority_scheduling(processes)
